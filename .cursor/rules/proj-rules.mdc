@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## 📐 Project Rules
+
+1. **Repository Structure**  
+   ```
+   /proxywave
+   ├── core/              # Rust engines adapters, config parser, API layer  
+   ├── ui/                # React components, pages, hooks, styles  
+   ├── service/           # System integration (proxy settings, tray, autostart)  
+   ├── updater/           # Update checker + installer  
+   ├── localization/      # i18next JSONs (ru/, en/) + date/time formats  
+   ├── shared/            # Types, constants, utilities  
+   ├── .github/workflows/ # CI: build, test, lint  
+   ├── Cargo.toml  
+   └── package.json  
+   ```
+
+2. **Code Quality & Formatting**  
+   - **Rust**: `rustfmt` on save; adhere to 2021 edition.  
+   - **TypeScript/React**: Prettier + ESLint (airbnb-style).  
+   - **Commit Messages**: Conventional Commits (feat/, fix/, docs/, chore/).  
+
+3. **Modular Architecture**  
+   - **Core**: Adapters for Sing-box, Xray/V2Ray, Clash.Meta.  
+   - **UI**: Reusable components (common, layout, dashboard, profiles, rules, logs, settings).  
+   - **Service**: Native Windows proxy via Tauri API, tray icon, autostart.  
+   - **Updater**: Version check + secure download.  
+
+4. **Localization**  
+   - Default language: Russian (`ru`). Secondary: English (`en`).  
+   - Structure under `localization/i18n/{ru,en}/{common,dashboard,settings,…}.json`.  
+   - Date/time formatting per Russian standards (DD.MM.YYYY HH:MM:SS).  
+
+5. **Protocols & Engines**  
+   - Must support: SOCKS5, HTTP(S), Shadowsocks, Trojan, VMess, VLESS, TUIC, Hysteria, Hysteria2, WireGuard, chaining.  
+
+6. **CI/CD**  
+   - Windows + Linux + macOS matrix.  
+   - Steps: install toolchain, `cargo build --release`, `npm ci && npm run build`, package via Tauri, run lints/tests.  
+
+7. **Documentation**  
+   - Auto-generate README in ru/ and en/ with usage, installation, contribution guide.  
+   - Document each module’s public API in code comments.  
+

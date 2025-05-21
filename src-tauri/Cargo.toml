@@ -1,0 +1,12 @@
+[package]
+name = "src-tauri"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Tauri backend
+ tauri = { version = "1.5", features = ["api-all", "system-tray", "macro"] }
+ serde = { version = "1", features = ["derive"] }
+
+[build-dependencies]
+ tauri-build = "1.4" 

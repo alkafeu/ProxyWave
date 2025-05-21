@@ -1,0 +1,9 @@
+{
+  "name": "proxywave",
+  "private": true,
+  "workspaces": ["ui"],
+  "scripts": {
+    "dev": "cd ui && npm run tauri dev",
+    "build": "cd ui && npm run tauri build"
+  }
+} 

@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "src-tauri",
+    "core",
+    "service",
+    "updater",
+    "shared"
+]
+resolver = "2" 
